@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title> My Minecraft </title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<header>
+    <hr class="solid">
+    <br>
+     <img class="corner-img" src="24d9e0778b2d70a8b08fbd6ada22d562.jpg" alt="小图">
+        <nav>
+            <a href="index.html">| Overworld |</a> 
+            <a href="TheEnd.html">| The End |</a>
+        </nav>
+    <br>
+    <hr class="solid">
+</header>
+
+<body>
+<div class="box">
+    <br><br>
+<h1 class="step" style="animation-delay:0.2s;">Minecraft</h1>
+<h2 class="step" style="animation-delay:0.2s;">World Without an Ending, and the Warmest Place in My Childhood </h2>
+<h3 class="step" style="animation-delay:0.2s;">By: Rosa Chen</h3>
+<img class="center-img" src="wallpapers_minecraft_ocean_monument_/wallpaper_minecraft_ocean_monument_2560x1440.png" alt="图片">
+</div>
+<hr class="dashed">
+
+<br>
+<details open class="sources-box">
+<summary class="step" style="animation-delay:0.2s;">- Sources - </summary>
+
+<p class="step sources-p" style="animation-delay:0.2s;">
+  Minecraft Official Website:<a href="https://www.minecraft.net/en-us">https://www.minecraft.net/en-us</a><br><br>
+
+  Minecraft - Wikipedia:<a href="https://en.wikipedia.org/wiki/Minecraft">https://en.wikipedia.org/wiki/Minecraft</a><br><br>
+
+  Minecraftia Font - Fontspace:<a href="https://www.fontspace.com/minecraft-font-f28180">https://www.fontspace.com/minecraft-font-f28180</a><br><br>
+
+  Minecraftia Image - Minecraft Official Website - Wallpaper Sharing:<a href="https://www.minecraft.net/zh-hans/collectibles?tabs=%7B%22tab%22%3A0%7D">https://www.minecraft.net/zh-hans/collectibles?tabs=%7B%22tab%22%3A0%7D</a><br><br>
+
+  Minecraftia Music - Minecraft Soundtrack - Volume Alpha and Beta (Complete Edition):<a href="https://downloads.khinsider.com/game-soundtracks/album/minecraft">https://downloads.khinsider.com/game-soundtracks/album/minecraft</a>
+</p>
+
+</details>
+<br>
+
+<hr class="dashed">
+
+ <audio id ="bgm" controls></audio>
+
+<div class="song-list">
+  <a class="step" style="animation-delay:0.2s;" href="#" data-src="1-08. Minecraft.mp3">| The First Song —— Minecraft |</a>
+  <a class="step" style="animation-delay:0.5s;" href="#" data-src="1-03. Subwoofer Lullaby.mp3">| The Second Song —— Subwoofer Lullaby |</a>
+  <a class="step" style="animation-delay:0.8s;" href="#" data-src="1-06. Moog City.mp3">| The Third Song —— Moog City |</a>
+  <a class="step" style="animation-delay:1.1s;" href="#" data-src="1-12. Dry Hands.mp3">| The Fourth Song —— Dry Hands |</a>
+  <a class="step" style="animation-delay:1.4s;" href="#" data-src="1-18. Sweden.mp3">| The Fifth Song —— Sweden |</a>
+</div>
+
+<script>
+  const bgm = document.getElementById('bgm');
+  const links = [...document.querySelectorAll('.song-list a')];
+  let current = 0;
+
+  function playIndex(i) {
+    current = i;
+    bgm.src = links[current].dataset.src;
+    bgm.play().catch(() => {});
+  }
+
+  links.forEach((a, i) => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      playIndex(i);
+    });
+  });
+
+  bgm.addEventListener('ended', () => {
+    playIndex((current + 1) % links.length);
+  });
+
+  bgm.src = links[0].dataset.src;
+  bgm.play().catch(() => {
+    document.addEventListener('click', function once() {
+      bgm.play();
+      document.removeEventListener('click', once);
+    }, { once: true });
+  });
+</script>
+
+</body>
+
+<header>
+    <hr class="solid">
+<footer>--- My Minecraft /// BY: Rosa Chen ---</footer>
+    <hr class="solid">
+</header>
+
+</html>
